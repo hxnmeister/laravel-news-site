@@ -19,9 +19,7 @@
 
             for($i = 0; $i < $newsCount; $i++)
             {
-                $randomNumber = rand(0, (count($mainNews['articles']) - 1));
-
-                $mainNewsToSend[] = $mainNews['articles'][$randomNumber];
+                $mainNewsToSend[] = $mainNews['articles'][rand(0, (count($mainNews['articles']) - 1))];
             } 
 
             return view('index', compact('mainNewsToSend', 'sideNews'));
