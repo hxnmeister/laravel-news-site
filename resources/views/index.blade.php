@@ -1,5 +1,5 @@
 @extends('templates.main')
-@section('news-feed')
+@section('content')
     <div class="container d-flex">
         <div class="container">
             <h1>Main News</h1>
@@ -25,7 +25,7 @@
                 <a href="{{$article['url']}}" class="link-secondary link-offset-2 link-underline link-underline-opacity-0">
                     <div class="container">
                         <h6 class="mb-0">{{$article['title']}}</h6>
-                        <p class="mb-0">Author: {{$article['author']}}</p>
+                        @if(!empty($article['author'])) <p class="mb-0">Author: {{$article['author']}}</p> @endif
                         <p class="mb-0">{{$article['description']}}</p>
                     </div>
                 </a>

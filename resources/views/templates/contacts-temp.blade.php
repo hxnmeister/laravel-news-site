@@ -13,6 +13,12 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('home')}}">Home</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('contacts')}}">Contacts</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('work-form')}}">Work Form</a>
+                    </li>
                 </ul>
             </header>
 
