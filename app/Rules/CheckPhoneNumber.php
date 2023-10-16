@@ -14,7 +14,7 @@ class CheckPhoneNumber implements ValidationRule
      */
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {
-        if(!preg_match('/^(?:\+380|0)\d{9}$/', $value) && !empty($value))
+        if(!empty($value) && !preg_match('/^(?:\+380|0)\d{9}$/', $value))
         {
             $fail("Phone number not acceptable in this format!");
         }
