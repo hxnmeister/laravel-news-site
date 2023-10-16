@@ -169,6 +169,10 @@ return [
         [
             'rule-name' => 'custom-message',
         ],
+        'rating' => 
+        [
+            'required' => 'The Rating field cannot be empty!'
+        ]
     ],
 
     /*
@@ -186,7 +190,9 @@ return [
     [
         'fName' => 'Name',
         'email' => 'E-Mail',
-        'age' => 'Age'
+        'age' => 'Age',
+        'name' => 'Name',
+        'review' => 'Review Text',
     ],
 
 ];

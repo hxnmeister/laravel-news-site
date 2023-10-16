@@ -2,7 +2,8 @@
 
     namespace App\Http\Controllers;
 
-    use GuzzleHttp\Client;
+use App\Models\Review;
+use GuzzleHttp\Client;
     use Illuminate\Http\Request;
     use Illuminate\View\View;
     use Illuminate\Http\RedirectResponse;
@@ -42,7 +43,7 @@
             return view('work-form');
         }
 
-        function sendWorkForm(Request $request) //: RedirectResponse
+        function sendWorkForm(Request $request) : RedirectResponse
         {
             $request->validate
             (
@@ -67,5 +68,35 @@
             mail('valeriy.stronskiy@gmail.com', 'Work Form', $message);
 
             return redirect()->back()->with('success', 'Information successfully submited!');
+        }
+
+        function reviews() : View
+        {
+            $reviewsDbData = Review::orderBy('created_at', 'desc')->get();
+
+            return view('reviews', compact('reviewsDbData'));
+        }
+
+        function sendReview(Request $request) : RedirectResponse
+        {
+            $request->validate
+            (
+                [
+                    'name' => 'required|min:2|max:25',
+                    'rating' => 'required',
+                    'review' => 'required|min:5'
+                ]
+            );
+
+            $review = new Review();
+            $name = strip_tags(trim($request->name));
+
+            $review->name = $name;
+            $review->email = strip_tags(trim($request->email));
+            $review->rate = $request->rating;
+            $review->content = htmlentities($request->review);
+            $review->save();
+            
+            return redirect()->back()->with('success', "Thanks for your review $name!");
         }
     }

@@ -17,5 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [MainController::class, 'index'])->name('home');
 Route::get('contacts', [MainController::class, 'contacts'])->name('contacts');
 Route::get('work-form', [MainController::class, 'workForm'])->name('work-form');
+Route::get('reviews', [MainController::class, 'reviews'])->name('reviews');
 
 Route::post('work-form', [MainController::class, 'sendWorkForm'])->name('sendWorkForm');
+Route::post('reviews', [MainController::class, 'sendReview'])->name('sendReview');

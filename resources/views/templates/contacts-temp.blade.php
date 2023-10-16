@@ -19,6 +19,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('work-form')}}">Work Form</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('reviews')}}">Reviews</a>
+                    </li>
                 </ul>
             </header>
 
