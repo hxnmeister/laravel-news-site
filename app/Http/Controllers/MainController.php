@@ -57,10 +57,10 @@ use GuzzleHttp\Client;
             );
 
             $age = $request->age;
-            $email = strip_tags(trim($request->email));
-            $fName = trim($request->fName);
+            $email = strip_tags($request->email);
+            $fName = $request->fName;
             $gender = $request->gender ?? 'Not choosed!';
-            $pNumber = trim($request->pNumber) ?? 'No number!';
+            $pNumber = $request->pNumber ?? 'No number!';
             $qualities = $request->qualities ?? 'No info about qualities!';
             $favAnimals = $request->favAnimals ?? [];
 
@@ -89,10 +89,10 @@ use GuzzleHttp\Client;
             );
 
             $review = new Review();
-            $name = strip_tags(trim($request->name));
+            $name = strip_tags($request->name);
 
             $review->name = $name;
-            $review->email = strip_tags(trim($request->email));
+            $review->email = strip_tags($request->email);
             $review->rate = $request->rating;
             $review->content = htmlentities($request->review);
             $review->save();
